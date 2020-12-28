@@ -6,4 +6,6 @@ ADD https://github.com/fnproject/cli/releases/download/0.6.1/fn_alpine /usr/loca
 
 RUN chmod +x /usr/local/bin/fn
 
+WORKDIR /srv
+VOLUME /srv
 ENTRYPOINT ["/usr/local/bin/fn"]

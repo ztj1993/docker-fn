@@ -4,8 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ztj1993/fn:latest
+    image: ztj1993/fn-cli:latest
+    network_mode: bridge
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data:/root/.fn:rw
+      - ./functions:/srv:rw
