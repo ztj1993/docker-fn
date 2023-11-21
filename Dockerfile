@@ -1,11 +1,10 @@
-FROM alpine:3.11
+FROM fnproject/fn:latest
 
-RUN apk add --no-cache docker
-
-ADD https://github.com/fnproject/cli/releases/download/0.6.1/fn_alpine /usr/local/bin/fn
-
-RUN chmod +x /usr/local/bin/fn
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+    && apk add --no-cache docker \
+    && rm -rf /var/cache/apk/*
 
 WORKDIR /srv
 VOLUME /srv
-ENTRYPOINT ["/usr/local/bin/fn"]
+
+ENTRYPOINT ["/app/fn"]

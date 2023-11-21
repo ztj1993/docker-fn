@@ -4,17 +4,28 @@
 
 ### 项目应用
 ```
-docker-compose build
-docker-compose run fn --help
-docker-compose run fn start -d
-docker-compose run fn list contexts
-docker-compose run fn init --runtime python hello-fn
-docker-compose run fn create app hello-app
-docker-compose run fn --verbose deploy --app hello-app --working-dir /srv/hello-fn --local
-docker-compose run fn list apps
-docker-compose run fn list functions hello-app
-docker-compose run fn invoke hello-app hello-fn
-docker-compose run fn inspect function hello-app hello-fn
+# 构建镜像
+docker compose build
+# 查看命令示例
+docker compose run fn --help
+# 启动服务(默认已启动)
+# docker compose run fn start -d
+# 查看上下文
+docker compose run fn list contexts
+# 创建一个函数
+docker compose run fn init --runtime python hello-fn
+# 创建一个应用
+docker compose run fn create app hello-app
+# 部署函数到应用
+docker compose run fn --verbose deploy --app hello-app --working-dir /srv/hello-fn --local
+# 查看所有应用
+docker compose run fn list apps
+# 查看应用下的函数
+docker compose run fn list functions hello-app
+# 调用应用下的函数
+docker compose run fn invoke hello-app hello-fn
+# 检查应用下的函数
+docker compose run fn inspect function hello-app hello-fn
 ```
 
 ### 环境变量
